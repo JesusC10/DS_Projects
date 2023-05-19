@@ -6,11 +6,11 @@ Created on Sat May 13 19:45:07 2023
 """
 
 import glassdoor_scrapper as gs
-import pandas as pd
 
-
-path = r"chromedriver"
+path = "chromedriver"
+keyword = "data scientist"
 
 #This line will open a new chrome window and start the scraping.
-df = gs.fetch_jobs("data scientist","Mexico", 30, path)
+df = gs.get_jobs("data scientist", 30, True, path, 15)
+df.to_csv(keyword+"_jobs.csv")
 df
