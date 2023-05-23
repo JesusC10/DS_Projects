@@ -24,7 +24,6 @@ add_range = minus_ep.apply(lambda x : x + ' - '+ x if len(x.split('-')) == 1 els
 
 df['min_salary'] = add_range.apply(lambda x : int(float(x.split('-')[0])))
 df['max_salary'] = add_range.apply(lambda x : int(float(x.split('-')[1])))
-df['avg_salary'] = (df['max_salary'] + df['min_salary']) / 2
 
 #company name text only
 df['company_text'] = df.apply(lambda x : x['Company Name'] if x['Rating'] < 0 else x['Company Name'][:-3], axis = 1)
@@ -47,6 +46,44 @@ df['spark_yn'] = df['Job Description'].apply(lambda x : 1 if 'spark' in x.lower(
 df['aws_yn'] = df['Job Description'].apply(lambda x : 1 if 'aws' in x.lower() else 0)
 #Excel
 df['excel_yn'] = df['Job Description'].apply(lambda x : 1 if 'excel' in x.lower() else 0)
+
+#Simplify Job title
+def title_simplifier(title):
+    if 'data scientist' in title.lower():
+        return 'data scientist'
+    elif 'data enineer' in title.lower():
+        return 'data enineer'
+    elif 'analyst' in title.lower():
+        return 'analyst'
+    elif 'machine learning' in title.lower():
+        return 'mle'
+    elif 'manager' in title.lower():
+        return 'manager'
+    if 'director' in title.lower():
+        return 'director'
+    else:
+        return 'na'
+    
+def seniority(title):
+    if 'sr' in title.lower() or 'senior' in title.lower() or 'sr.' in title.lower() or 'lead' in title.lower() or 'principal' in title.lower():
+        return 'senior'
+    elif 'jr' in title.lower() or 'jr.' in title.lower():
+        return 'jr'
+    else:
+        return 'na'
+    
+df['job_simp'] = df['Job Title'].apply(title_simplifier)
+df['seniority'] = df['Job Title'].apply(seniority)
+
+#Job description length
+df['desc_len'] = df['Job Description'].apply(lambda x : len(x))
+
+# Hourly wage to annual
+df['min_salary'] = df.apply(lambda x: x.min_salary*2 if x.hourly == 1 else x.min_salary, axis=1)
+df['max_salary'] = df.apply(lambda x: x.max_salary*2 if x.hourly == 1 else x.max_salary, axis=1)
+df['avg_salary'] = (df['max_salary'] + df['min_salary']) / 2
+
+df['company_txt'] = df.company_txt.apply(lambda x: x.replace('\n',''))
 
 
 df_out = df.drop(['Unnamed: 0'], axis=1)
