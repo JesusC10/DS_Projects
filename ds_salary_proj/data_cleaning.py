@@ -7,7 +7,7 @@ Created on Fri May 19 10:15:58 2023
 
 import pandas as pd
 
-df = pd.read_csv('data_scientist_jobs.csv')
+df = pd.read_csv('data_scientist_jobs_2.csv')
 
 #salary parsing
 df['hourly'] = df['Salary Estimate'].apply(lambda x : 1 if 'per hour' in x.lower() else 0)
@@ -83,8 +83,8 @@ df['min_salary'] = df.apply(lambda x: x.min_salary*2 if x.hourly == 1 else x.min
 df['max_salary'] = df.apply(lambda x: x.max_salary*2 if x.hourly == 1 else x.max_salary, axis=1)
 df['avg_salary'] = (df['max_salary'] + df['min_salary']) / 2
 
-df['company_txt'] = df.company_txt.apply(lambda x: x.replace('\n',''))
+df['company_txt'] = df.company_text.apply(lambda x: x.replace('\n',''))
 
 
 df_out = df.drop(['Unnamed: 0'], axis=1)
-df_out.to_csv('clean_data_science_jobs.csv', index = False)
+df_out.to_csv('clean_data_science_jobs_2.csv', index = False)
