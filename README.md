@@ -7,5 +7,7 @@
 
 ### Code & Resources used
 **Python Version:** 3.9.13
-https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
-https://medium.com/@benjaminrohan010/scraping-glassdoor-using-selenium-and-python-2022-bd0065775aec
+**Packages:** pandas, numpy, sklearn, seaborn, selenium, flask, json, pickle
+**Web Framework Requirements:** '''pip install -r requierements.text'''
+**Scrapper Aricle:**https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
+                   **s://medium.com/@benjaminrohan010/scraping-glassdoor-using-selenium-and-python-2022-bd0065775aec
