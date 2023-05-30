@@ -6,5 +6,6 @@
 * Built a endpoint API using flask
 
 ### Code & Resources used
+**Python Version:** 3.9.13
 https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
 https://medium.com/@benjaminrohan010/scraping-glassdoor-using-selenium-and-python-2022-bd0065775aec
