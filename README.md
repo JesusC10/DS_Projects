@@ -8,6 +8,14 @@
 ### Code & Resources used
 **Python Version:** 3.9.13
 **Packages:** pandas, numpy, sklearn, seaborn, selenium, flask, json, pickle
-**Web Framework Requirements:** '''pip install -r requierements.text'''
-**Scrapper Aricle:**https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
-                   **s://medium.com/@benjaminrohan010/scraping-glassdoor-using-selenium-and-python-2022-bd0065775aec
+**Web Framework Requirements:** pip install -r requierements.text
+**Scrapper Article:** https://mersakarya.medium.com/selenium-tutorial-scraping-glassdoor-com-in-10-minutes-3d0915c6d905
+**Scrapper Article:** https//medium.com/@benjaminrohan010/scraping-glassdoor-using-selenium-and-python-2022-bd0065775aec
+**Flask Productionization:** https://towardsdatascience.com/productionize-a-machine-learning-model-with-flask-and-heroku-8201260503d2
+**API Request:** https://www.geeksforgeeks.org/get-post-requests-using-python/
+
+### Youtube Walkthrough Playlist
+https://youtu.be/MpF9HENQjDo
+
+### Web Scrapping
+
